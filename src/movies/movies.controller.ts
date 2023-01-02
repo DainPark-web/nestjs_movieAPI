@@ -1,3 +1,4 @@
+import { CreateMovieDto } from './dto/create-movie.dto';
 import {
   Body,
   Controller,
@@ -24,22 +25,23 @@ export class MoviesController {
     return `We are searching for a movie with a title: ${searchingYear}`;
   }
   @Get('/:id')
-  getOne(@Param('id') id: string): Movie {
+  getOne(@Param('id') id: number): Movie {
+    console.log(typeof id);
     return this.movieService.getOne(id);
   }
 
   @Post()
-  create(@Body() movieData) {
+  create(@Body() movieData: CreateMovieDto) {
     return this.movieService.create(movieData);
   }
 
   @Delete('/:id')
-  remove(@Param('id') movieId: string) {
+  remove(@Param('id') movieId: number) {
     return this.movieService.deleteOne(movieId);
   }
 
   @Patch('/:id')
-  update(@Param('id') movieId: string, @Body() updateData) {
+  update(@Param('id') movieId: number, @Body() updateData) {
     return this.movieService.update(movieId, updateData);
   }
 }
