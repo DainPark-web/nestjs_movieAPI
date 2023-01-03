@@ -1,3 +1,9 @@
 # NESTJS_MOVIEAPI
 
 - Learning NestJS
+
+### index
+
+- REST API
+- UNIT TESTING
+- E2E TESTING
